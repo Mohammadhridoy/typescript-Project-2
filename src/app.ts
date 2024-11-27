@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express"
 import cors from 'cors'
+import { carRoutes } from "./app/modules/cars/car.route"
 const app: Application = express()
 
 
@@ -8,8 +9,8 @@ app.use(express.json())
 app.use(cors())
 
 
-// application routes W
-// app.use('/api/v1/students', )
+// application routes 
+app.use('/api/cars',carRoutes )
 
 
 app.get('/', (req: Request, res: Response) => {
