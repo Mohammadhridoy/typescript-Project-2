@@ -9,7 +9,8 @@ const carValidationSchema = z.object({
     category: z.enum(["Sedan" , "SUV" , "Truck" , "Coupe" ,"Convertible"]), 
     description: z.string(),
     quantity: z.number(),
-    inStock: z.boolean()
+    inStock: z.boolean(),
+    isDeleted: z.boolean()
 
 })
 

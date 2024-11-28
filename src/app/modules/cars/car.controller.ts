@@ -53,7 +53,7 @@ const getOneCarInfo = async(req: Request, res: Response) =>{
         res.status(200).json({
                 message:'Car retrieved successfully',
                 success:true,
-                data: result,
+                data: result ,
         })
     }catch(err:any){
         res.status(500).json({
@@ -85,7 +85,22 @@ const updatedCarInfo = async(req: Request, res:Response) =>{
 
 }
 
-
+const deleteCarInfo = async( req:Request, res:Response) =>{
+    try{
+        const carId = req.params.carId
+        const result = await carServices.deleteCarinfoFromDB(carId)
+        res.status(200).json({
+            message:'Car deleted successfully',
+            success:true,
+            data: { },
+    })
+    }catch(err: any) {
+        res.status(500).json({
+            success:false,
+            message: err.message || 'Something went wrong!'
+        })
+    }
+}
 
 
 
@@ -94,5 +109,6 @@ export const carControllers = {
     createCar,
     getAllCarsInfo,
     getOneCarInfo,
-    updatedCarInfo
+    updatedCarInfo,
+    deleteCarInfo
 }
