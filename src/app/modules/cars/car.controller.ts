@@ -63,6 +63,28 @@ const getOneCarInfo = async(req: Request, res: Response) =>{
     }
 }
 
+const updatedCarInfo = async(req: Request, res:Response) =>{
+    try{
+        
+        const  updateData = req.body
+        const carId  = req.params.carId
+        const result = await carServices.updatedCarInfoInDB(carId,  updateData )
+        
+        res.status(200).json({
+                message:'Car updated successfully',
+                success:true,
+                data: result,
+        })
+
+    }catch(err:any){
+        res.status(500).json({
+            success:false,
+            message: err.message || 'Something went wrong!'
+        })
+    }
+
+}
+
 
 
 
@@ -71,5 +93,6 @@ const getOneCarInfo = async(req: Request, res: Response) =>{
 export const carControllers = {
     createCar,
     getAllCarsInfo,
-    getOneCarInfo
+    getOneCarInfo,
+    updatedCarInfo
 }
