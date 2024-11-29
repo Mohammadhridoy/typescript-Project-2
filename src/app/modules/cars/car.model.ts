@@ -22,7 +22,12 @@ const CarSchema = new Schema<Car>({
     inStock:{ type: Boolean, required:[true, 'Stock is empty'] },
     isDeleted: {type:Boolean, default:false}
     
-})
+},
+{
+    timestamps:true
+}
+
+)
 
 CarSchema.pre('find',function(next){
     this.find({isDeleted:{$ne:true}})
