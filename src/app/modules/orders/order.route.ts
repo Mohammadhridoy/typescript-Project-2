@@ -4,9 +4,9 @@ import { orderControllers } from './order.controller';
 
 const router = express.Router()
 
-router.post('/create-order', orderControllers.createOrder)
+router.post('/orders', orderControllers.createOrder)
 
-router.get('/revenue', orderControllers.getOrderRevenue)
+router.get('/orders/revenue', orderControllers.getOrderRevenue)
 
 
 

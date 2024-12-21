@@ -11,7 +11,7 @@ const createCar = async (req: Request, res: Response) =>{
 
         res.status(200).json({
             message:"Car created successfully",
-            success:true,
+            status:true,
             data: result,
         })
 
@@ -31,7 +31,7 @@ const getAllCarsInfo = async (req:Request , res:Response ) =>{
         const result = await carServices.getAllCarsInfoFromDB()
         res.status(200).json({
             message:'Cars retrieved successfully',
-            success:true,
+            status:true,
             data: result,
         })
 
@@ -52,7 +52,7 @@ const getOneCarInfo = async(req: Request, res: Response) =>{
         
         res.status(200).json({
                 message:'Car retrieved successfully',
-                success:true,
+                status:true,
                 data: result ,
         })
     }catch(err:any){
@@ -72,7 +72,7 @@ const updatedCarInfo = async(req: Request, res:Response) =>{
         
         res.status(200).json({
                 message:'Car updated successfully',
-                success:true,
+                status:true,
                 data: result,
         })
 
@@ -91,7 +91,7 @@ const deleteCarInfo = async( req:Request, res:Response) =>{
         const result = await carServices.deleteCarinfoFromDB(carId)
         res.status(200).json({
             message:'Car deleted successfully',
-            success:true,
+            status:true,
             data: { },
     })
     }catch(err: any) {

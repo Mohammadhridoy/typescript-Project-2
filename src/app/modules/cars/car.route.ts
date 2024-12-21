@@ -4,11 +4,12 @@ import { carControllers } from './car.controller';
 
 const router = express.Router()
 
-router.post('/create-car', carControllers.createCar )
-router.get('/:carId', carControllers.getOneCarInfo )
-router.put('/:carId', carControllers.updatedCarInfo )
-router.delete('/:carId', carControllers.deleteCarInfo)
-router.get('/', carControllers.getAllCarsInfo)
+router.post('/cars', carControllers.createCar )
+router.get('/cars', carControllers.getAllCarsInfo)
+router.get('/cars/:carId', carControllers.getOneCarInfo )
+router.put('/cars/:carId', carControllers.updatedCarInfo )
+router.delete('/cars/:carId', carControllers.deleteCarInfo)
+
 
 
 export const carRoutes = router; 

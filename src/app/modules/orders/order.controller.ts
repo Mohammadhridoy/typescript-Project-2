@@ -13,8 +13,8 @@ const createOrder = async (req: Request, res: Response) =>{
 
         
         res.status(200).json({
-            message:"Car created successfully",
-            success:true,
+            message:"Order created successfully",
+            status:true,
             data: result,
         })
 
@@ -33,8 +33,8 @@ const getOrderRevenue = async (req: Request, res: Response) =>{
         const result = await orderService.getOrderRevenueFromDB()
 
         res.status(200).json({
-            message:"Car created successfully",
-            success:true,
+            message:"Revenue calculated successfully",
+            status:true,
             data: {
                 totalRevenue: result
             } 

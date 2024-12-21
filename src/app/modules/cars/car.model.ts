@@ -40,6 +40,8 @@ CarSchema.pre('findOne',function(next){
 })
 
 
+
+
 export const CarModel = model<Car>('Car', CarSchema)
 
 

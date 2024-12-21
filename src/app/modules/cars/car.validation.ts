@@ -10,7 +10,7 @@ const carValidationSchema = z.object({
     description: z.string(),
     quantity: z.number(),
     inStock: z.boolean(),
-    isDeleted: z.boolean()
+    isDeleted: z.boolean().optional()
 
 })
 

@@ -23,7 +23,7 @@ const getOneCarInfoFromDB = async (id:string) =>{
 }
 
 const updatedCarInfoInDB = async(id:string,  updateData:Car) =>{
-    const result = await CarModel.updateOne(
+    const updateInfo = await CarModel.updateOne(
         {_id: id}, 
         {
             $set: {
@@ -40,7 +40,9 @@ const updatedCarInfoInDB = async(id:string,  updateData:Car) =>{
             }
         }
     )
+    const result = await CarModel.findOne({_id:id})
     return result;
+    
 }
 
 const deleteCarinfoFromDB = async(id:string) =>{

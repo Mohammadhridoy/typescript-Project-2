@@ -18,6 +18,7 @@ const createOrderIntoDB = async(orderData: Order) =>{
         {
             $inc:{quantity: -result.quantity},
         }
+        
     )
     
     return result;

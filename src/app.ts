@@ -11,8 +11,8 @@ app.use(cors())
 
 
 // application routes 
-app.use('/api/cars',carRoutes )
-app.use('/api/orders',orderRouter  )
+app.use('/api',carRoutes )
+app.use('/api',orderRouter  )
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!')
