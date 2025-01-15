@@ -10,8 +10,20 @@ const createCarIntoDB = async (cardata: Car ) =>{
     return result; 
 }
 
-const getAllCarsInfoFromDB = async () =>{
-    const result = await CarModel.find()
+const getAllCarsInfoFromDB = async (queryElement: Record <string, unknown>) =>{
+    
+    const query = queryElement.searchTerm
+
+    const searchField = ["brand", "model", "category"]
+
+    const result = query? await CarModel.find({
+        $or: searchField.map((field)=>(
+            {
+                [field]:{$regex:query, $options:"i"}
+            }
+        ))
+    }) : await CarModel.find()
+    
     return result; 
 }
 
