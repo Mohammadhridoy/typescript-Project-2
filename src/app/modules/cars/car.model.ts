@@ -20,7 +20,7 @@ const CarSchema = new Schema<Car>({
     description:{type:String},
     quantity: { type:Number, required:[true, 'Give product quantity'] },
     inStock:{ type: Boolean, required:[true, 'Stock is empty'] },
-    isDeleted: {type:Boolean, default:false}
+  
     
 },
 {
@@ -28,17 +28,6 @@ const CarSchema = new Schema<Car>({
 }
 
 )
-
-CarSchema.pre('find',function(next){
-    this.find({isDeleted:{$ne:true}})
-    next()
-})
-
-CarSchema.pre('findOne',function(next){
-    this.find({isDeleted:{$ne:true}})
-    next()
-})
-
 
 
 

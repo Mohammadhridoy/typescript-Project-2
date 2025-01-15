@@ -10,6 +10,5 @@ export type Car ={
     description: string,
     quantity:number,
     inStock: boolean, 
-    isDeleted?: boolean
 
 }

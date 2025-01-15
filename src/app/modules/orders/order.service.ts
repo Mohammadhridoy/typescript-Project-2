@@ -6,6 +6,7 @@ import { OrderModel } from "./order.model";
 
 
 const createOrderIntoDB = async(orderData: Order) =>{
+   
     const result = await OrderModel.create(orderData)
 
 
@@ -20,8 +21,8 @@ const createOrderIntoDB = async(orderData: Order) =>{
         }
         
     )
-    
-    
+
+
     return result;
 }
 

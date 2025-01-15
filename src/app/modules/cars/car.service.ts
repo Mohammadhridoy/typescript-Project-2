@@ -46,7 +46,8 @@ const updatedCarInfoInDB = async(id:string,  updateData:Car) =>{
 }
 
 const deleteCarinfoFromDB = async(id:string) =>{
-    const result = await CarModel.updateOne({_id: id }, {isDeleted: true })
+   
+    const result = await CarModel.findByIdAndDelete({_id:id})
     return result; 
 }
 
